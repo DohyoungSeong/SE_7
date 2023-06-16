@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <meta charset='utf-8'>
+    <style>
+        /* 스타일 코드 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .editable {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .editable input {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            text-align: center;
+        }
+        .button-container {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+        }
+
+        .button-container button {
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        function makeEditable(element) {
+            var text = element.innerText;
+            element.innerHTML = '<input type="text" value="' + text + '" onblur="makeNonEditable(this.parentNode)" />';
+            element.firstChild.focus();
+        }
+        
+        function makeNonEditable(element) {
+            var text = element.firstChild.value;
+            element.innerHTML = text || '';
+        }
+        function logout() {
+        window.location.href = "/login"; // 로그인 페이지의 경로를 지정해주세요
+        }
+        function mypage(){
+        window.location.href = "/mypage";
+        }
+    </script>
+</head>
+<body style="background-color: skyblue;">
+    <h1><%= title %></h1>
+    <div class="button-container">
+    <button class="logout-button" onclick="logout()">로그아웃</button> <!-- 로그아웃 버튼 추가 -->
+    <button class="mypage-button" onclick="mypage()">마이페이지</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>시간</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1교시</th>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+            </tr>
+            <tr>
+                <th>2교시</th>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+            </tr>
+            <tr>
+                <th>3교시</th>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+            </tr>
+            <tr>
+                <th>4교시</th>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+            </tr>
+            <tr>
+                <th>5교시</th>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+            </tr>
+            <tr>
+                <th>6교시</th>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+                <td class="editable" onclick="makeEditable(this)"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
